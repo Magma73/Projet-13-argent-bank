@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
 
 /**
  * Styled main element for the main container.
@@ -32,15 +30,11 @@ const LinkHome = styled.a`
 const Error = () => {
 
     return (
-
         <div>
-            <Header />
             <MainContainer>
                 <Message>Page d'erreur 404</Message>
                 <LinkHome href="/">Retour à la page d'accueil</LinkHome>
             </MainContainer>
-
-            <Footer />
         </div>
     );
 }
