@@ -1,8 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
 import styled from 'styled-components'
+import { useSelector } from 'react-redux';
+import { useLocation } from "react-router-dom";
+import LogInHeader from "./LogInHeader";
+import LogOutHeader from "./LogOutHeader";
 import Logo from '../../assets/img/argentBankLogo.png'
-import colors from '../../utils/style/colors'
 
 /**
  * Styled header element for the header container.
@@ -25,7 +27,6 @@ const LinkLogo = styled.a`
     display: flex;
     align-items: center;
 `
-
 /**
  * Styled image element for the home logo.
  */
@@ -49,27 +50,13 @@ const SrOnlyText = styled.h1`
     width: 1px !important;
     white-space: nowrap !important; /* 3 */
 `
-
 /**
- * Styled div element for the sign in container.
+ * Styled div element for the main nav item.
  */
-const SignInContainer = styled.div`
+const MainNavItem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-`
-
-/**
- * Styled anchor element for the link logo.
- */
-const LinkSignIn = styled.a`
-    font-weight: bold;
-    color: ${colors.secondary};
-    text-decoration: none;
-    margin-right: 0.5rem;
-    &:hover{
-        text-decoration: underline;
-    }
 `
 
 /**
@@ -77,20 +64,26 @@ const LinkSignIn = styled.a`
  * @returns {JSX.Element} The rendered header component.
  */
 const Header = () => {
+    const location = useLocation();
+    const isProfilePage = location.pathname === '/profile';
+
+    // Extract the user profile information from the Redux store
+    const userProfile = useSelector((state) => state.userProfile);
+
     return (
         <HeaderContainer>
             <MainNav>
-                <LinkLogo to="/">
+                <LinkLogo href="/">
                     <HomeLogo src={Logo} alt='Argent Bank Logo' />
                     <SrOnlyText>Argent Bank</SrOnlyText>
                 </LinkLogo>
 
-                <SignInContainer>
-                    <LinkSignIn to="/">
-                        <FontAwesomeIcon icon={faUserCircle} />
-                        &nbsp;Sign In
-                    </LinkSignIn>
-                </SignInContainer>
+                <MainNavItem>
+                    {/* Render LogOutHeader on the profile page*/}
+                    {isProfilePage && <LogOutHeader userProfile={userProfile.firstname} />}
+                    {/* Render LogInHeader on all other pages */}
+                    {!isProfilePage && <LogInHeader />}
+                </MainNavItem>
             </MainNav>
         </HeaderContainer>
     )
