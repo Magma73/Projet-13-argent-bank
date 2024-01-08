@@ -6,13 +6,14 @@ const colors = {
   //   tertiary: '#2c3e50',
   colorItemTitle: '#222',
   colorTextFooter: '#ccc',
+  colorAlert: '#880808',
   // colorInfosName: '#282D30',
   // colorInfosQuantity: '#74798C',
   // colorProtein: '#4AB8FF', // Blue
   // colorGlucid: '#FDCC0C', // Yellow
   // colorLipid: '#FD5181', // Pink
   // colorAxis: '#9B9EAC',
-  // colorStroke: '#DEDEDE',
+  colorBorder: '#000000', // Black
   backgroundDark: '#12002b',
   backgroundLight: '#FFFFFF',
   // backgroundCursor: '#C4C4C480',

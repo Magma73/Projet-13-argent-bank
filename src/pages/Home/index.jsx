@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import Header from "../../components/Header"
 import Banner from "../../components/Banner"
 import Features from "../../components/Features"
-import Footer from "../../components/Footer"
 
+// import React, { useState, useEffect } from "react"
+// import AuthService from "../../services/auth.service"
+
+// AuthService()
 
 /**
  * Styled main element for the main container.
@@ -18,18 +20,26 @@ const MainContainer = styled.main`
  */
 
 const Home = () => {
+    // const [userData, setContent] = useState("");
+    // const [error, setError] = useState(false);
+    // useEffect(() => {
+    //     UserService.getUserMainData()
+    //         .then((response) => {
+    //             setContent(response);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error)
+    //             setError(true);
+    //         });
+    // }, []);
+
 
     return (
-
         <div>
-            <Header />
-
             <MainContainer>
                 <Banner />
                 <Features />
             </MainContainer>
-
-            <Footer />
         </div>
     );
 }
