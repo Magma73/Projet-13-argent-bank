@@ -174,7 +174,8 @@ const Login = () => {
             .unwrap()
             .then(() => {
                 // If  the "Remember Me" checkbox is checked, store is registered in local storage
-                if (isRememberRef) {
+                if (isRememberRef.current) {
+                    console.log(isRememberRef);
                     localStorage.setItem('user', JSON.stringify(store.getState()));
                 } else {
                     sessionStorage.setItem('user', JSON.stringify(store.getState()));
