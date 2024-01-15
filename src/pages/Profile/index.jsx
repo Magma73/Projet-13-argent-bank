@@ -234,7 +234,7 @@ const Profile = () => {
     };
 
     // If there is an error, navigate to the login page
-    if (error !== '') {
+    if ((error !== '') || (!userProfile && ((localStorage.length === 0) || (sessionStorage.length === 0)))) {
         return <Navigate to="/login" />;
     }
 
