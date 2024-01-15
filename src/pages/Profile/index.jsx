@@ -212,15 +212,18 @@ const Profile = () => {
         const firstName = document.getElementById("firstname").value;
         const lastName = document.getElementById("lastname").value;
 
-        // Dispatching updateUserName action to update user profile
-        dispatch(updateUserProfile({ userToken, firstName, lastName }))
-            .unwrap()
-            .then(() => {
-                dispatch(fetchUserProfile(userToken));
-            })
-            .catch(() => {
-                console.log(error);
-            });
+        // Check if values are not empties
+        if (firstName !== '' || lastName !== '') {
+            // Dispatching updateUserName action to update user profile
+            dispatch(updateUserProfile({ userToken, firstName, lastName }))
+                .unwrap()
+                .then(() => {
+                    dispatch(fetchUserProfile(userToken));
+                })
+                .catch(() => {
+                    console.log(error);
+                });
+        }
     };
 
     // Handler for Cancel button click
