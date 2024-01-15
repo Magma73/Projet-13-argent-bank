@@ -2,46 +2,46 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import AuthService from '../services/auth.service';
 
 const initialState = {
+  loading: false,
   isRecovered: false,
-  error: '',
   userProfile: null,
+  error: '',
 };
 
+// Async thunk for handling user profile retrieval
 export const fetchUserProfile = createAsyncThunk(
   'userProfile/fetchUserProfile',
   async (userToken, thunkAPI) => {
     try {
       const response = await AuthService.fetchUserProfile(userToken);
-      console.log('réponse dans userProfileSlice: ', response);
       const userProfile = response.body;
       return userProfile;
     } catch (error) {
-      console.error('Erreur lors de la récupération du profil utilisateur :', error);
+      console.error('Error during fetchUserProfile:', error);
       return thunkAPI.rejectWithValue();
     }
   }
 );
 
+// Creating the userProfile slice using createSlice from Redux Toolkit
 const userProfileSlice = createSlice({
   name: 'userProfile',
   initialState,
   extraReducers: (builder) => {
     builder
+      .addCase(fetchUserProfile.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
         state.isRecovered = true;
-        // console.log(action)
         state.userProfile = action.payload;
-        // console.log(action.payload);
-        // return action.payload;
       })
-      .addCase(fetchUserProfile.rejected, (state) => {
+      .addCase(fetchUserProfile.rejected, (state, action) => {
         state.isRecovered = false;
-        // state.userProfile = null;
+        state.error = action.error.message;
       });
   },
 });
-
-// export const { reducer: userProfileReducer } = userProfileSlice;
 
 const { reducer } = userProfileSlice;
 export default reducer;

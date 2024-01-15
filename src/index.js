@@ -9,8 +9,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
-// import SlideNav from './components/SlideNav'
-// import styled from 'styled-components';
 import './main.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +18,6 @@ root.render(
       <Provider store={store}>
         <Header />
         <Routes>
-          {/* <Route exact path="/" element={<Navigate to="/user/12" />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
