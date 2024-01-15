@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../slices/auth";
 import { clearMessage } from "../../slices/message";
-import { store } from "../../app/store"
+import { store } from "../../store/store"
 
 /**
  * Styled main element for the main container.
