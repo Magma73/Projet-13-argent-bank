@@ -13,7 +13,7 @@ const FeatureContainer = styled.div`
  * Styled image element for the home logo.
  */
 const FeatureLogo = styled.img`
-    width: 100px;
+    width: 152px;
     border: 10px solid ${colors.primary};
     border-radius: 50%;
     padding: 1rem;
@@ -26,6 +26,7 @@ const FeatureTitle = styled.h3`
     color: ${colors.colorItemTitle};
     font-size: 1.25rem;
     font-weight: bold;
+    margin-top:1.3rem;
     margin-bottom: 0.5rem;
 `
 /**
