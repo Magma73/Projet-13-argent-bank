@@ -37,7 +37,7 @@ const LogOutHeader = () => {
     return (
         <div>
             {/* Display the username if available */}
-            <LinkMainNavItem href="/login">
+            <LinkMainNavItem href="/profile">
                 <FontAwesomeIcon icon={faUserCircle} />
                 &nbsp;{userProfile && userProfile.firstName}
             </LinkMainNavItem>
