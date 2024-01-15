@@ -8,9 +8,10 @@ import axios from 'axios';
 const API_URL = 'http://localhost:3001/api/v1/';
 
 // /**
-//  * Function getUserMainData - Send User Main Datas using axios api or mocked datas
-//  * @param {number} userId- The userId
-//  * @returns {Promise<object>} - User Main Datas
+//  * Function login - Send user login credentials using axios API
+//  * @param {string} email - User email
+//  * @param {string} password - User password
+//  * @returns {Promise<object>} - User data after successful login
 //  */
 
 const login = async (email, password) => {
@@ -28,11 +29,19 @@ const login = async (email, password) => {
   }
 };
 
+// /**
+//  * Function logout - Clear user data from local storage and session storage
+//  */
 const logout = () => {
   localStorage.clear();
   sessionStorage.clear();
 };
 
+// /**
+//  * Function fetchUserProfile - Retrieve user profile data using user token
+//  * @param {string} userToken - User token for authentication
+//  * @returns {Promise<object>} - User profile data
+//  */
 const fetchUserProfile = async (userToken) => {
   try {
     const response = await axios.post(`${API_URL}user/profile`, null, {
@@ -47,6 +56,13 @@ const fetchUserProfile = async (userToken) => {
   }
 };
 
+// /**
+//  * Function updateUserProfile - Update user profile data using user token, first name, and last name
+//  * @param {string} userToken - User token for authentication
+//  * @param {string} firstName - New first name for the user profile
+//  * @param {string} lastName - New last name for the user profile
+//  * @returns {Promise<object>} - Updated user profile data
+//  */
 const updateUserProfile = async (userToken, firstName, lastName) => {
   try {
     const response = await axios.put(
