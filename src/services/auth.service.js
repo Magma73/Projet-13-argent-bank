@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // /**
-//  * UserService - Handle API calls
+//  * AuthService - Handle API calls
 //  * @module UserService
 //  */
 
@@ -13,40 +13,25 @@ const API_URL = 'http://localhost:3001/api/v1/';
 //  * @returns {Promise<object>} - User Main Datas
 //  */
 
-const login = (email, password) => {
-  return axios
-    .post(API_URL + 'user/login', {
+const login = async (email, password) => {
+  try {
+    const response = await axios.post(API_URL + 'user/login', {
       email,
       password,
-    })
-    .then((response) => {
-      if (response.data.body.token) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        localStorage.setItem('userToken', response.data.body.token);
-      }
-      console.log(response.data);
-      return response.data;
     });
+
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error during login:', error);
+    throw error;
+  }
 };
 
 const logout = () => {
-  localStorage.removeItem('user');
+  localStorage.clear();
+  sessionStorage.clear();
 };
-
-// const fetchUserProfile = (userToken) => {
-//   return axios
-//     .post(`${API_URL}user/profile`, null, {
-//       headers: {
-//         Authorization: `Bearer ${userToken}`,
-//       },
-//     })
-//     .then((response) => {
-//       return response.data;
-//     })
-//     .catch((error) => {
-//       throw error;
-//     });
-// };
 
 const fetchUserProfile = async (userToken) => {
   try {
@@ -55,9 +40,31 @@ const fetchUserProfile = async (userToken) => {
         Authorization: `Bearer ${userToken}`,
       },
     });
-
     return response.data;
   } catch (error) {
+    console.error('Error during fetchUserProfile:', error);
+    throw error;
+  }
+};
+
+const updateUserProfile = async (userToken, firstName, lastName) => {
+  try {
+    const response = await axios.put(
+      `${API_URL}user/profile`,
+      {
+        firstName,
+        lastName,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error during updateUserProfile:', error);
     throw error;
   }
 };
@@ -66,7 +73,7 @@ const AuthService = {
   login,
   logout,
   fetchUserProfile,
-  // getUserProfile,
+  updateUserProfile,
 };
 
 export default AuthService;
