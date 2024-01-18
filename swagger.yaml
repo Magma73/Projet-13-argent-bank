@@ -131,7 +131,80 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: User Details Transaction Account API
+      description: API for updating details of a specific transaction associated with a user account
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+        - in: path
+          name: accountId
+          description: User's account ID
+          type: integer
+          required: true
+        - in: path
+          name: transactionId
+          description: Transaction ID
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Details Transaction attributes
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionDetailsEditable'
+      responses:
+        '200':
+          description: Transaction details updated successfully
+          schema:
+            $ref: '#/definitions/TransactionDetailsResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: User Details Transaction Account API
+      description: API for deleting a specific transaction associated with a user account
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+        - in: path
+          name: accountId
+          description: User's account ID
+          type: integer
+          required: true
+        - in: path
+          name: transactionId
+          description: Transaction ID
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Details Transaction attributes
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionDetailsEditable'
+      responses:
+        '200':
+          description: Transaction deleted successfully
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -215,9 +288,18 @@ definitions:
       type:
         type: string
         description: Transaction Type
+      body:
+        $ref: '#/definitions/TransactionDetailsEditable'
+  TransactionDetailsEditable:
+    type: object
+    properties:
       category:
         type: string
         description: Transaction Category
+        enum:
+          - Food
+          - Option2
+          - Option3
       notes:
         type: string
         description: Transaction Notes
