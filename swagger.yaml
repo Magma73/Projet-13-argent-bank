@@ -79,16 +79,6 @@ paths:
           description: User's account ID
           type: integer
           required: true
-        - name: fromDate
-          in: query
-          description: Start date for fetching transactions
-          required: false
-          type: string
-        - name: toDate
-          in: query
-          description: End date for fetching transactions
-          required: false
-          type: string
       responses:
         '200':
           description: Transactions retrieved successfully
