@@ -214,15 +214,29 @@ const Profile = () => {
 
         // Check if values are not empties
         if (firstName !== '' || lastName !== '') {
-            // Dispatching updateUserName action to update user profile
-            dispatch(updateUserProfile({ userToken, firstName, lastName }))
-                .unwrap()
-                .then(() => {
-                    dispatch(fetchUserProfile(userToken));
-                })
-                .catch(() => {
-                    console.log(error);
-                });
+            // Check if first name is provided, if yes, update it
+            if (firstName !== '') {
+                dispatch(updateUserProfile({ userToken, firstName, lastName: userProfile.lastName }))
+                    .unwrap()
+                    .then(() => {
+                        dispatch(fetchUserProfile(userToken));
+                    })
+                    .catch(() => {
+                        console.log(error);
+                    });
+            }
+
+            // Check if last name is provided, if yes, update it
+            if (lastName !== '') {
+                dispatch(updateUserProfile({ userToken, firstName: userProfile.firstName, lastName }))
+                    .unwrap()
+                    .then(() => {
+                        dispatch(fetchUserProfile(userToken));
+                    })
+                    .catch(() => {
+                        console.log(error);
+                    });
+            }
         }
     };
 
