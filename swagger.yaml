@@ -192,12 +192,6 @@ paths:
           description: Transaction ID
           type: string
           required: true
-        - in: body
-          name: body
-          description: Details Transaction attributes
-          required: true
-          schema:
-            $ref: '#/definitions/TransactionDetailsEditables'
       responses:
         '200':
           description: Transaction deleted successfully
@@ -296,10 +290,6 @@ definitions:
       category:
         type: string
         description: Transaction Category
-        enum:
-          - Food
-          - Option2
-          - Option3
       notes:
         type: string
         description: Transaction Notes
