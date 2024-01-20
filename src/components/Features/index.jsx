@@ -64,7 +64,6 @@ const Features = () => {
             <SrOnlyText>Features</SrOnlyText>
 
             {FeaturesArray.map((feature, index) => (
-                // console.log(feature.title)
                 <FeatureItem key={index} src={feature.src} alt={feature.alt} title={feature.title} text={feature.text} />
             ))}
 

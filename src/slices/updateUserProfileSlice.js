@@ -7,6 +7,7 @@ const initialState = {
   error: '',
 };
 
+// Create an async thunk for updating the user profile
 export const updateUserProfile = createAsyncThunk(
   'userProfile/updateUserProfile',
   async ({ userToken, firstName, lastName }, thunkAPI) => {
@@ -23,6 +24,7 @@ export const updateUserProfile = createAsyncThunk(
   }
 );
 
+// Create a slice for the user profile, including reducers and extra reducers for async actions
 const updateUserProfileSlice = createSlice({
   name: 'userProfile',
   initialState,
@@ -30,18 +32,15 @@ const updateUserProfileSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(updateUserProfile.pending, (state) => {
-        // Update the state when the request is in progress
         state.loading = true;
         state.isUpdated = false;
         state.error = '';
       })
       .addCase(updateUserProfile.fulfilled, (state) => {
-        // Update the state when the request is successful
         state.loading = false;
         state.isUpdated = true;
       })
       .addCase(updateUserProfile.rejected, (state, action) => {
-        // Update the state when the request fails
         state.loading = false;
         state.error = action.payload;
       });

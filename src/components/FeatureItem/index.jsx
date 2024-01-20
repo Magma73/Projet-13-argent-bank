@@ -33,7 +33,6 @@ const FeatureTitle = styled.h3`
  * Styled p element for the text
  */
 const FeatureText = styled.p`
-
 `
 
 /**

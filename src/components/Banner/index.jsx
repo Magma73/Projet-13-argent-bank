@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import BannerImg from '../../assets/img/bank-tree.jpeg'
 
-
 /**
  * Styled hero element for the hero container.
  */
