@@ -247,8 +247,8 @@ const Profile = () => {
         setShowWelcome(true);
     };
 
-    // If there is an error, navigate to the login page
-    if ((error !== '') || (!userProfile && ((localStorage.length === 0) || (sessionStorage.length === 0)))) {
+    // Automatic redirection
+    if ((error !== '') || ((localStorage.length === 0) && (sessionStorage.length === 0))) {
         return <Navigate to="/login" />;
     }
 

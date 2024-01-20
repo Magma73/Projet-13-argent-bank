@@ -191,7 +191,7 @@ const Login = () => {
     };
 
     // Automatic redirection
-    if (usernameRef && passwordRef && ((localStorage.length !== 0) || (sessionStorage.length !== 0))) {
+    if ((localStorage.length !== 0) || (sessionStorage.length !== 0)) {
         return <Navigate to="/profile" />;
     }
 
