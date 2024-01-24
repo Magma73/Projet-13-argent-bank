@@ -32,7 +32,11 @@ const LinkLogo = styled.a`
  */
 const HomeLogo = styled.img`
     max-width: 100%;
-    width: 200px;
+    width: 150px;
+    @media (min-width: 576px) {
+        max-width: 100%;
+        width: 200px;
+    }
 `
 /**
  * Styled h1 element for the hidden title

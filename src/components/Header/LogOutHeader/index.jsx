@@ -6,9 +6,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../../slices/auth';
 
 /**
+ * Styled div element for the container links.
+ */
+const ContainerLinks = styled.div`
+    display:flex;
+    align-items:center;
+`
+
+/**
  * Styled anchor element for the link logo.
  */
 const LinkMainNavItem = styled.a`
+    display:flex;
     font-weight: bold;
     color: ${colors.secondary};
     text-decoration: none;
@@ -35,7 +44,7 @@ const LogOutHeader = () => {
     };
 
     return (
-        <div>
+        <ContainerLinks>
             {/* Display the username if available */}
             <LinkMainNavItem href="/profile">
                 <FontAwesomeIcon icon={faUserCircle} />
@@ -47,7 +56,7 @@ const LogOutHeader = () => {
                 <FontAwesomeIcon icon={faRightFromBracket} />
                 &nbsp;Sign Out
             </LinkMainNavItem>
-        </div>
+        </ContainerLinks>
     )
 }
 
