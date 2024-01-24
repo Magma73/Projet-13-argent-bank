@@ -175,8 +175,7 @@ const Login = () => {
             .then(() => {
                 // If  the "Remember Me" checkbox is checked, store is registered in local storage
                 if (isRememberRef.current) {
-                    console.log(isRememberRef);
-                    localStorage.setItem('user', JSON.stringify(store.getState()));
+                     localStorage.setItem('user', JSON.stringify(store.getState()));
                 } else {
                     sessionStorage.setItem('user', JSON.stringify(store.getState()));
                 }
@@ -191,7 +190,8 @@ const Login = () => {
     };
 
     // Automatic redirection
-    if ((localStorage.length !== 0) || (sessionStorage.length !== 0)) {
+    if ((localStorage.length !== 0) || (sessionStorage.length !== 0) || (localStorage.length > 0 && !localStorage.getItem('user')) ||
+        (sessionStorage.length > 0 && !sessionStorage.getItem('user'))) {
         return <Navigate to="/profile" />;
     }
 
