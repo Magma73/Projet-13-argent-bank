@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Login/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Login/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect, useRef } from "react"
+import styled from 'styled-components'
+import colors from '../../utils/style/colors'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
+import { login } from "../../slices/auth";
+import { clearMessage } from "../../slices/message";
+import { store } from "../../store/store"
+
+/**
+ * Styled main element for the main container.
+ */
+const MainContainer = styled.main`
+    background-color: ${colors.backgroundDark};
+    flex: 1;
+`
+
+/**
+ * Styled section element for the section container.
+ */
+const LoginContainer = styled.section`
+    box-sizing: border-box;
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 2rem;
+`
+/**
+ * Styled icon element for the fontawesome icon.
+ */
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+    font-size: 1rem;
+`
+/**
+ * Styled h1 element for the title
+ */
+const FormTitle = styled.h1`
+    margin: 1.2rem 0;
+`
+/**
+ * Styled form element for the form
+ */
+const FormComponent = styled.form`
+`
+/**
+ * Styled div element for the input wrapper
+ */
+const InputWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+`
+/**
+ * Styled label element for the label
+ */
+const LabelText = styled.label`
+    font-weight: bold;
+`
+/**
+ * Styled input element for the input
+ */
+const InputText = styled.input`
+    padding: 5px;
+    font-size: 1.2rem;
+`
+/**
+ * Styled div element for the input remember
+ */
+const InputRemember = styled.div`
+    display: flex;
+`
+/**
+ * Styled input element for the input remember
+ */
+const InputBox = styled.input`
+`
+/**
+ * Styled label element for the label
+ */
+const LabelBox = styled.label`
+    margin-left: 0.25rem;
+`
+/**
+ * Styled button element for the button
+ */
+const ButtonSignIn = styled.button`
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: ${(props) => (props.disabled ? "gray" : colors.primary)};
+    background-color: ${(props) => (props.disabled ? "lightgray" : colors.primary)};
+    color: ${(props) => (props.disabled ? "darkgray" : colors.backgroundLight)};
+    opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+    &amp;:hover {
+        text-decoration: underline;
+      }
+    `
+/**
+ * Styled div element for the form group
+ */
+const FormGroup = styled.div`
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+`
+/**
+ * Styled div element for the alert message
+ */
+const Alert = styled.div`
+    font-weight: bold;
+    color:${colors.colorAlert}
+`
+
+/**
+ * Function component Login - Render the login page.
+ * @returns {JSX.Element} - The rendered login component.
+ */
+const Login = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    // State for tracking loading status during form submission : button submit disabled
+    const [loading, setLoading] = useState(false);
+
+    // Refs for input elements
+    const usernameRef = useRef(null);
+    const passwordRef = useRef(null);
+    const isRememberRef = useRef(false);
+
+    // State for tracking form validation errors
+    const [formErrors, setFormErrors] = useState({});
+
+    // Redux selectors to access messages from the global state
+    const { message } = useSelector((state) => state.message);
+
+    // useEffect to clear any previous messages when the component is mounted
+    useEffect(() => {
+        dispatch(clearMessage());
+    }, [dispatch]);
+
+    // Event handler for toggling the "Remember Me" checkbox
+    const handleRememberMeChange = (e) => {
+        const { checked } = e.target;
+        isRememberRef.current = checked;
+    };
+
+    // Event handler for form submission
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const username = usernameRef.current.value;
+        const password = passwordRef.current.value;
+
+        // Basic validation: Check if both username and password are provided
+        if (!username || !password) {
+            setFormErrors({
+                username: !username,
+                password: !password
+            });
+            return;
+        }
+
+        // Set loading state to true during form submission
+        setLoading(true);
+
+        // Dispatch the login action to Redux
+        dispatch(login({ username, password }))
+            .unwrap()
+            .then(() => {
+                // If  the "Remember Me" checkbox is checked, store is registered in local storage
+                if (isRememberRef.current) {
+                    console.log(isRememberRef);
+                    localStorage.setItem('user', JSON.stringify(store.getState()));
+                } else {
+                    sessionStorage.setItem('user', JSON.stringify(store.getState()));
+                }
+                // If login is successful, navigate to the profile page and reload the window
+                navigate("/profile");
+            })
+            .catch(() => {
+                // If login fails, set loading and set form errors states back to false
+                setLoading(false);
+                setFormErrors(false);
+            });
+    };
+
+    // Automatic redirection
+    if ((localStorage.length !== 0) || (sessionStorage.length !== 0)) {
+        return &lt;Navigate to="/profile" />;
+    }
+
+    return (
+        &lt;MainContainer>
+            &lt;LoginContainer>
+                &lt;StyledFontAwesomeIcon icon={faUserCircle} />
+                &lt;FormTitle>Sign In&lt;/FormTitle>
+                &lt;FormComponent
+                    onSubmit={handleLogin}
+                >
+                    &lt;InputWrapper>
+                        &lt;LabelText htmlFor="username">Username&lt;/LabelText>
+                        &lt;InputText
+                            type="text"
+                            id="username"
+                            name="username"
+                            ref={usernameRef}
+                        />
+                    &lt;/InputWrapper>
+                    &lt;InputWrapper>
+                        &lt;LabelText htmlFor="password">Password&lt;/LabelText>
+                        &lt;InputText
+                            type="password"
+                            id="password"
+                            name="password"
+                            ref={passwordRef}
+                        />
+                    &lt;/InputWrapper>
+                    &lt;InputRemember>
+                        &lt;InputBox
+                            type="checkbox"
+                            id="remember-me"
+                            name="remember-me"
+                            onChange={handleRememberMeChange}
+                        />
+                        &lt;LabelBox htmlFor="remember-me">Remember me&lt;/LabelBox>
+                    &lt;/InputRemember>
+                    &lt;ButtonSignIn type="submit" disabled={loading}>Sign In&lt;/ButtonSignIn>
+                &lt;/FormComponent>
+            &lt;/LoginContainer>
+
+            {formErrors.username &amp;&amp; (
+                &lt;FormGroup>
+                    &lt;Alert role="alert">Please enter a username.&lt;/Alert>
+                &lt;/FormGroup>
+            )}
+
+            {formErrors.password &amp;&amp; (
+                &lt;FormGroup>
+                    &lt;Alert role="alert">Please enter a password.&lt;/Alert>
+                &lt;/FormGroup>
+            )}
+
+            {message &amp;&amp; !formErrors.username &amp;&amp; !formErrors.password &amp;&amp; (
+                &lt;FormGroup>
+                    &lt;Alert role="alert">{message}&lt;/Alert>
+                &lt;/FormGroup>
+            )}
+
+        &lt;/MainContainer>
+    );
+
+}
+export default Login
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccountAmount">AccountAmount</a></li><li><a href="global.html#AccountAmountDescription">AccountAmountDescription</a></li><li><a href="global.html#AccountContainer">AccountContainer</a></li><li><a href="global.html#AccountContentWrapper">AccountContentWrapper</a></li><li><a href="global.html#AccountContentWrapperCta">AccountContentWrapperCta</a></li><li><a href="global.html#AccountTitle">AccountTitle</a></li><li><a href="global.html#Alert">Alert</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#ButtonEditName">ButtonEditName</a></li><li><a href="global.html#ButtonSignIn">ButtonSignIn</a></li><li><a href="global.html#ButtonUpdateName">ButtonUpdateName</a></li><li><a href="global.html#ButtonsContainer">ButtonsContainer</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FeatureContainer">FeatureContainer</a></li><li><a href="global.html#FeatureItem">FeatureItem</a></li><li><a href="global.html#FeatureLogo">FeatureLogo</a></li><li><a href="global.html#FeatureText">FeatureText</a></li><li><a href="global.html#FeatureTitle">FeatureTitle</a></li><li><a href="global.html#Features">Features</a></li><li><a href="global.html#FeaturesContainer">FeaturesContainer</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterContainer">FooterContainer</a></li><li><a href="global.html#FooterText">FooterText</a></li><li><a href="global.html#FormComponent">FormComponent</a></li><li><a href="global.html#FormGroup">FormGroup</a></li><li><a href="global.html#FormTitle">FormTitle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderContainer">HeaderContainer</a></li><li><a href="global.html#HeaderTitle">HeaderTitle</a></li><li><a href="global.html#HeroContainer">HeroContainer</a></li><li><a href="global.html#HeroContent">HeroContent</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HomeLogo">HomeLogo</a></li><li><a href="global.html#InputBox">InputBox</a></li><li><a href="global.html#InputContainer">InputContainer</a></li><li><a href="global.html#InputRemember">InputRemember</a></li><li><a href="global.html#InputText">InputText</a></li><li><a href="global.html#InputWrapper">InputWrapper</a></li><li><a href="global.html#LabelBox">LabelBox</a></li><li><a href="global.html#LabelText">LabelText</a></li><li><a href="global.html#LinkHome">LinkHome</a></li><li><a href="global.html#LinkLogo">LinkLogo</a></li><li><a href="global.html#LinkMainNavItem">LinkMainNavItem</a></li><li><a href="global.html#LogInHeader">LogInHeader</a></li><li><a href="global.html#LogOutHeader">LogOutHeader</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginContainer">LoginContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#MainNav">MainNav</a></li><li><a href="global.html#MainNavItem">MainNavItem</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#SrOnlyText">SrOnlyText</a></li><li><a href="global.html#StyledFontAwesomeIcon">StyledFontAwesomeIcon</a></li><li><a href="global.html#Subtitle">Subtitle</a></li><li><a href="global.html#TextContainer">TextContainer</a></li><li><a href="global.html#TransactionButton">TransactionButton</a></li><li><a href="global.html#WelcomeText">WelcomeText</a></li><li><a href="global.html#WelcomeTitle">WelcomeTitle</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jan 23 2024 18:09:19 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

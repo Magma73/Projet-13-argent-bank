@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Header/LogInHeader/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Header/LogInHeader/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
+import colors from '../../../utils/style/colors'
+
+/**
+ * Styled anchor element for the link logo.
+ */
+const LinkMainNavItem = styled.a`
+    font-weight: bold;
+    color: ${colors.secondary};
+    text-decoration: none;
+    margin-right: 0.5rem;
+    &amp;:hover{
+        text-decoration: underline;
+    }
+`
+
+/**
+ * Function component LogInHeader - Represent the LogInHeader Nav
+ * @returns {JSX.Element} The rendered LogInHeader component.
+ */
+const LogInHeader = () => {
+    return (
+        &lt;div>
+            &lt;LinkMainNavItem href="/login">
+                &lt;FontAwesomeIcon icon={faUserCircle} />
+                &amp;nbsp;Sign In
+            &lt;/LinkMainNavItem>
+        &lt;/div>
+    )
+}
+
+export default LogInHeader</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccountAmount">AccountAmount</a></li><li><a href="global.html#AccountAmountDescription">AccountAmountDescription</a></li><li><a href="global.html#AccountContainer">AccountContainer</a></li><li><a href="global.html#AccountContentWrapper">AccountContentWrapper</a></li><li><a href="global.html#AccountContentWrapperCta">AccountContentWrapperCta</a></li><li><a href="global.html#AccountTitle">AccountTitle</a></li><li><a href="global.html#Alert">Alert</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#ButtonEditName">ButtonEditName</a></li><li><a href="global.html#ButtonSignIn">ButtonSignIn</a></li><li><a href="global.html#ButtonUpdateName">ButtonUpdateName</a></li><li><a href="global.html#ButtonsContainer">ButtonsContainer</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FeatureContainer">FeatureContainer</a></li><li><a href="global.html#FeatureItem">FeatureItem</a></li><li><a href="global.html#FeatureLogo">FeatureLogo</a></li><li><a href="global.html#FeatureText">FeatureText</a></li><li><a href="global.html#FeatureTitle">FeatureTitle</a></li><li><a href="global.html#Features">Features</a></li><li><a href="global.html#FeaturesContainer">FeaturesContainer</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterContainer">FooterContainer</a></li><li><a href="global.html#FooterText">FooterText</a></li><li><a href="global.html#FormComponent">FormComponent</a></li><li><a href="global.html#FormGroup">FormGroup</a></li><li><a href="global.html#FormTitle">FormTitle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderContainer">HeaderContainer</a></li><li><a href="global.html#HeaderTitle">HeaderTitle</a></li><li><a href="global.html#HeroContainer">HeroContainer</a></li><li><a href="global.html#HeroContent">HeroContent</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HomeLogo">HomeLogo</a></li><li><a href="global.html#InputBox">InputBox</a></li><li><a href="global.html#InputContainer">InputContainer</a></li><li><a href="global.html#InputRemember">InputRemember</a></li><li><a href="global.html#InputText">InputText</a></li><li><a href="global.html#InputWrapper">InputWrapper</a></li><li><a href="global.html#LabelBox">LabelBox</a></li><li><a href="global.html#LabelText">LabelText</a></li><li><a href="global.html#LinkHome">LinkHome</a></li><li><a href="global.html#LinkLogo">LinkLogo</a></li><li><a href="global.html#LinkMainNavItem">LinkMainNavItem</a></li><li><a href="global.html#LogInHeader">LogInHeader</a></li><li><a href="global.html#LogOutHeader">LogOutHeader</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginContainer">LoginContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#MainNav">MainNav</a></li><li><a href="global.html#MainNavItem">MainNavItem</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#SrOnlyText">SrOnlyText</a></li><li><a href="global.html#StyledFontAwesomeIcon">StyledFontAwesomeIcon</a></li><li><a href="global.html#Subtitle">Subtitle</a></li><li><a href="global.html#TextContainer">TextContainer</a></li><li><a href="global.html#TransactionButton">TransactionButton</a></li><li><a href="global.html#WelcomeText">WelcomeText</a></li><li><a href="global.html#WelcomeTitle">WelcomeTitle</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jan 23 2024 18:09:19 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

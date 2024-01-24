@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Banner/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Banner/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import styled from 'styled-components'
+import BannerImg from '../../assets/img/bank-tree.jpeg'
+
+/**
+ * Styled hero element for the hero container.
+ */
+const HeroContainer = styled.div`
+    background-image: url(${BannerImg});
+    background-position: 0 -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    position: relative;
+    @media (min-width: 920px) {
+          height: 400px;
+          background-position: 0% 33%;
+    }
+`
+/**
+ * Styled hero element for the hero content.
+ */
+const HeroContent = styled.section`
+    position: relative;
+    top: 2rem;
+    width: 200px;
+    background: white;
+    padding: 2rem;
+    text-align: left;
+    margin: 0 auto;
+    @media (min-width: 920px) {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        width: 300px;
+        margin: 2rem;
+    }
+`
+
+/**
+ * Styled h2 element for the hidden title
+ */
+const SrOnlyText = styled.h2`
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important; /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important; /* 3 */
+`
+
+/**
+ * Styled p element for subtitle elements.
+ */
+const Subtitle = styled.p`
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+    @media (min-width: 920px) {
+        font-size: 1.5rem;
+    }
+`
+
+/**
+ * Styled p element for text element.
+ */
+const TextContainer = styled.p`
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    @media (min-width: 920px) {
+        font-size: 1.2rem;
+    }
+`
+
+/**
+ * Function component Header - Represent the header
+ * @returns {JSX.Element} The rendered header component.
+ */
+const Banner = () => {
+    return (
+        &lt;HeroContainer>
+            &lt;HeroContent>
+                &lt;SrOnlyText>Promoted Content&lt;/SrOnlyText>
+                &lt;Subtitle>No fees.&lt;/Subtitle>
+                &lt;Subtitle>No minimum deposit.&lt;/Subtitle>
+                &lt;Subtitle>High interest rates.&lt;/Subtitle>
+                &lt;TextContainer>Open a savings account with Argent Bank today!&lt;/TextContainer>
+            &lt;/HeroContent>
+        &lt;/HeroContainer>
+    )
+}
+
+export default Banner</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccountAmount">AccountAmount</a></li><li><a href="global.html#AccountAmountDescription">AccountAmountDescription</a></li><li><a href="global.html#AccountContainer">AccountContainer</a></li><li><a href="global.html#AccountContentWrapper">AccountContentWrapper</a></li><li><a href="global.html#AccountContentWrapperCta">AccountContentWrapperCta</a></li><li><a href="global.html#AccountTitle">AccountTitle</a></li><li><a href="global.html#Alert">Alert</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#ButtonEditName">ButtonEditName</a></li><li><a href="global.html#ButtonSignIn">ButtonSignIn</a></li><li><a href="global.html#ButtonUpdateName">ButtonUpdateName</a></li><li><a href="global.html#ButtonsContainer">ButtonsContainer</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#FeatureContainer">FeatureContainer</a></li><li><a href="global.html#FeatureItem">FeatureItem</a></li><li><a href="global.html#FeatureLogo">FeatureLogo</a></li><li><a href="global.html#FeatureText">FeatureText</a></li><li><a href="global.html#FeatureTitle">FeatureTitle</a></li><li><a href="global.html#Features">Features</a></li><li><a href="global.html#FeaturesContainer">FeaturesContainer</a></li><li><a href="global.html#Footer">Footer</a></li><li><a href="global.html#FooterContainer">FooterContainer</a></li><li><a href="global.html#FooterText">FooterText</a></li><li><a href="global.html#FormComponent">FormComponent</a></li><li><a href="global.html#FormGroup">FormGroup</a></li><li><a href="global.html#FormTitle">FormTitle</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderContainer">HeaderContainer</a></li><li><a href="global.html#HeaderTitle">HeaderTitle</a></li><li><a href="global.html#HeroContainer">HeroContainer</a></li><li><a href="global.html#HeroContent">HeroContent</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#HomeLogo">HomeLogo</a></li><li><a href="global.html#InputBox">InputBox</a></li><li><a href="global.html#InputContainer">InputContainer</a></li><li><a href="global.html#InputRemember">InputRemember</a></li><li><a href="global.html#InputText">InputText</a></li><li><a href="global.html#InputWrapper">InputWrapper</a></li><li><a href="global.html#LabelBox">LabelBox</a></li><li><a href="global.html#LabelText">LabelText</a></li><li><a href="global.html#LinkHome">LinkHome</a></li><li><a href="global.html#LinkLogo">LinkLogo</a></li><li><a href="global.html#LinkMainNavItem">LinkMainNavItem</a></li><li><a href="global.html#LogInHeader">LogInHeader</a></li><li><a href="global.html#LogOutHeader">LogOutHeader</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#LoginContainer">LoginContainer</a></li><li><a href="global.html#MainContainer">MainContainer</a></li><li><a href="global.html#MainNav">MainNav</a></li><li><a href="global.html#MainNavItem">MainNavItem</a></li><li><a href="global.html#Message">Message</a></li><li><a href="global.html#Profile">Profile</a></li><li><a href="global.html#SrOnlyText">SrOnlyText</a></li><li><a href="global.html#StyledFontAwesomeIcon">StyledFontAwesomeIcon</a></li><li><a href="global.html#Subtitle">Subtitle</a></li><li><a href="global.html#TextContainer">TextContainer</a></li><li><a href="global.html#TransactionButton">TransactionButton</a></li><li><a href="global.html#WelcomeText">WelcomeText</a></li><li><a href="global.html#WelcomeTitle">WelcomeTitle</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Jan 23 2024 18:09:19 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
