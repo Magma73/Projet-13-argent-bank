@@ -167,6 +167,8 @@ const Profile = () => {
     const userLocalStorage = JSON.parse(localStorage.getItem('user'));
     const userSessionStorage = JSON.parse(sessionStorage.getItem('user'));
 
+    // console.log(localStorage.user);
+
     // Extracting user profile and error from Redux state
     const { userProfile } = useSelector((state) => state.userProfile);
     const { error } = useSelector((state) => state.userProfile);
@@ -209,34 +211,23 @@ const Profile = () => {
         setShowWelcome(true);
 
         // Extracting values from form inputs
-        const firstName = document.getElementById("firstname").value;
-        const lastName = document.getElementById("lastname").value;
+        const firstNameInput = document.getElementById("firstname");
+        const lastNameInput = document.getElementById("lastname");
 
-        // Check if values are not empties
-        if (firstName !== '' || lastName !== '') {
-            // Check if first name is provided, if yes, update it
-            if (firstName !== '') {
-                dispatch(updateUserProfile({ userToken, firstName, lastName: userProfile.lastName }))
-                    .unwrap()
-                    .then(() => {
-                        dispatch(fetchUserProfile(userToken));
-                    })
-                    .catch(() => {
-                        console.log(error);
-                    });
-            }
+        // Storing values in variables
+        const updatedFirstName = firstNameInput ? (firstNameInput.value !== '' ? firstNameInput.value : userProfile.firstName) : '';
+        const updatedLastName = lastNameInput ? (lastNameInput.value !== '' ? lastNameInput.value : userProfile.lastName) : '';
 
-            // Check if last name is provided, if yes, update it
-            if (lastName !== '') {
-                dispatch(updateUserProfile({ userToken, firstName: userProfile.firstName, lastName }))
-                    .unwrap()
-                    .then(() => {
-                        dispatch(fetchUserProfile(userToken));
-                    })
-                    .catch(() => {
-                        console.log(error);
-                    });
-            }
+        // Check if the values are different from the current profile values
+        if ((updatedFirstName !== userProfile.firstName) || (updatedLastName !== userProfile.lastName)) {
+            dispatch(updateUserProfile({ userToken, firstName: updatedFirstName, lastName: updatedLastName }))
+                .unwrap()
+                .then(() => {
+                    dispatch(fetchUserProfile(userToken));
+                })
+                .catch(() => {
+                    console.log(error);
+                });
         }
     };
 
