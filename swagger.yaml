@@ -403,10 +403,10 @@ definitions:
         type: string
         description: The account currency of the user
       amount:
-        type: integer
+        type: number
         description: The amount of the transaction
-      balanceDate:
-        type: integer
+      balance:
+        type: number
         description: The amount of the balance after the transaction is created
   TransactionDetailsResponse:
     type: object
