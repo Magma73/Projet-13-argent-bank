@@ -72,6 +72,7 @@ const FormComponent = styled.form`
     display: flex;
     flex-direction: column;
     width: 460px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
 `
