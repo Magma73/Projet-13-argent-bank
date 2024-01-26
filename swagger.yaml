@@ -213,7 +213,7 @@ paths:
         - in: path
           name: transactionId
           description: Transaction ID
-          type: string
+          type: integer
           required: true
       responses:
         '200':
@@ -245,7 +245,7 @@ paths:
         - in: path
           name: transactionId
           description: Transaction ID
-          type: string
+          type: integer
           required: true
         - in: body
           name: body
