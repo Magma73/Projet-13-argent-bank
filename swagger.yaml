@@ -219,7 +219,7 @@ paths:
         '200':
           description: Transaction details retrieved successfully
           schema:
-            $ref: '#/definitions/TransactionDetailsResponse'
+            $ref: '#/definitions/Transaction'
         '400':
           description: Invalid Fields
         '500':
@@ -408,6 +408,15 @@ definitions:
       balance:
         type: number
         description: The amount of the balance after the transaction is created
+      type:
+        type: string
+        description: Transaction Type
+      category:
+        type: string
+        description: Transaction Category
+      notes:
+        type: string
+        description: Transaction Notes
   TransactionDetailsResponse:
     type: object
     properties:
@@ -415,14 +424,6 @@ definitions:
         type: integer
       message:
         type: string
-      body:
-        $ref: '#/definitions/TransactionDetails'
-  TransactionDetails:
-    type: object
-    properties:
-      type:
-        type: string
-        description: Transaction Type
       body:
         $ref: '#/definitions/TransactionDetailsEditables'
   TransactionDetailsEditables:
