@@ -34,15 +34,15 @@ Pour les maquettes, les designs sont données dans les fichiers HTML statiques e
 
 ### Page d'accueil
 
-![Home page Argent Bank](/argent-bank//public/assets/img/HomePage.png)
+![Home page Argent Bank][/argent-bank/public/assets/img/HomePage.png]
 
 ### Page de connexion
 
-![Login page Argent Bank](/argent-bank//public/assets/img/LoginPage.png)
+![Login page Argent Bank](/argent-bank/public/assets/img/LoginPage.png)
 
 ### Page de profil
 
-![Profile page Argent Bank](/argent-bank//public/assets/img/ProfilePage.png)
+![Profile page Argent Bank](/argent-bank/public/assets/img/ProfilePage.png)
 
 ## Notes et contraintes du projet
 
@@ -85,3 +85,5 @@ Pour les maquettes, les designs sont données dans les fichiers HTML statiques e
   - Forker ou cloner le repot actuel : [Front-end Argent-Bank](https://github.com/Magma73/Projet-13-argent-bank)
   - Accéder au répertoire du projet et utiliser la commande `npm install` pour installer les dépendances du projet
   - Puis lancer la commande `npm start` pour ouvrir l'application dans le navigateur
+
+[def]: /argent-bank//public/assets/img/HomePage.png
