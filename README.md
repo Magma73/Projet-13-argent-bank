@@ -1,3 +1,9 @@
+[![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+
+[![Redux Version](https://img.shields.io/badge/Redux-4.2.1-purple.svg)](https://redux.js.org/)
+
+[![Styled Components](https://img.shields.io/badge/Styled%20Components-v6.0.7-orange.svg)](https://styled-components.com/)
+
 # Projet 13 - Utilisez le state manager Redux pour gérer l’état de vos applications
 
 ## Contexte du projet
