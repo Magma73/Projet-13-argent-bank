@@ -34,15 +34,15 @@ Pour les maquettes, les designs sont données dans les fichiers HTML statiques e
 
 ### Page d'accueil
 
-![Home page Argent Bank][/argent-bank/public/assets/img/HomePage.png]
+![Home page Argent Bank](./public/assets/img/HomePage.png)
 
 ### Page de connexion
 
-![Login page Argent Bank](/argent-bank/public/assets/img/LoginPage.png)
+![Login page Argent Bank](./public/assets/img/LoginPage.png)
 
 ### Page de profil
 
-![Profile page Argent Bank](/argent-bank/public/assets/img/ProfilePage.png)
+![Profile page Argent Bank](./public/assets/img/ProfilePage.png)
 
 ## Notes et contraintes du projet
 
