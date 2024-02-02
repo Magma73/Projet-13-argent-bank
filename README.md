@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projet 13 - Utilisez le state manager Redux pour gérer l’état de vos applications
 
-## Available Scripts
+## Contexte du projet
 
-In the project directory, you can run:
+Remede Agency est une agence spécialisée dans le développement d'applications web. 
+L’entreprise a signé un nouveau contrat avec une banque, Argent Bank. Cette nouvelle banque veut percer dans le secteur et confie à l'agence la mise en place de son application.
 
-### `npm start`
+## Mission du projet
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Le projet se décompose en 2 phases :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Phase 1 - Authentification des utilisateurs :** créer l'application web permettant aux clients de se connecter et de gérer leurs comptes et leur profil
 
-### `npm test`
+- **Phase 2 - Transactions :** proposer des endpoints API pour la future fonctionnalité concernant les transactions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies utilisées
 
-### `npm run build`
+- React
+- React Router : gérer les routes
+- Redux et Redux Toolkit : gérer les états
+- Fontawesome : intégrer les icônes
+- Modules CSS : gérer le css
+- Swagger editor : définir et de concevoir les endpoints API
+- Prettier : mettre en forme le code
+- ESLint : indiquer les erreurs et sécuriser le code
+- JSDoc : pour commenter et documenter le code
+- Github : versionner le code
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Maquettes à respecter
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pour les maquettes, les designs sont données dans les fichiers HTML statiques et CSS fournis dans le repot suivant [Project-10-Bank-API](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/designs).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Page d'accueil
 
-### `npm run eject`
+![Home page Argent Bank](/public/assets/img/Home Page.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Page de connexion
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Login page Argent Bank](/public/assets/img/Login Page.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Page de profil
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Profile page Argent Bank](/public/assets/img/Profile Page.png)
 
-## Learn More
+## Notes et contraintes du projet
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Police :**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Polices : Avenir
 
-### Code Splitting
+**Couleurs :**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Vert : #00bc77
+- Blanc : #FFFFFF
+- Noir : #222
+- Violet : #12002b
 
-### Analyzing the Bundle Size
+**Contraintes techniques :**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Utiliser React, Redux et React-Redux
+- Mettre en place une implémentation de Redux pour la gestion de l'état qui :
+  - Utilise un magasin (store) pour gérer les données
+  - Inclut des action(s) pour envoyer des informations
+  - Utilise des réducteurs (reducers) pour gérer les changements d'état de l'application
+- Utiliser Swagger pour créer la documentation pour les endpoints API
+- Gérer les calls API : soit avec Fetch, soit Axios
+- Créer un service à part pour les calls API
 
-### Making a Progressive Web App
+## Tester le projet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prérequis
 
-### Advanced Configuration
+- NodeJS (version 12.18)
+- Yarn
+- Éditeur de texte (VSCode etc.)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Lancer le projet
 
-### Deployment
+- **Back-end :**
+  Mettre en place le back-end en suivant les instructions suivantes : [Back-end Argent-Bank](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Front-end :**
+  - Forker ou cloner le repot actuel : [Front-end Argent-Bank](https://github.com/Magma73/Projet-13-argent-bank)
+  - Accéder au répertoire du projet et utiliser la commande `npm install` pour installer les dépendances du projet
+  - Puis lancer la commande `npm start` pour ouvrir l'application dans le navigateur
