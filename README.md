@@ -1,8 +1,5 @@
-[![React Version](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-
-[![Redux Version](https://img.shields.io/badge/Redux-4.2.1-purple.svg)](https://redux.js.org/)
-
-[![Styled Components](https://img.shields.io/badge/Styled%20Components-v6.0.7-orange.svg)](https://styled-components.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/) [![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/) [![React router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com/en/main) [![Styled component](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)](https://styled-components.com/)
+[![Fontawesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)](https://fontawesome.com/) [![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/fr/docs/intro) [![NPM version](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/) [![Node version](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en) [![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://editor.swagger.io/&ved=2ahUKEwjUksPQgsyFAxW2UKQEHVzvCGwQFnoECAcQAQ&usg=AOvVaw0JrxGe9QVE_4Oek2M7IeVv) [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://vitejs.dev/)
 
 # Projet 13 - Utilisez le state manager Redux pour gérer l’état de vos applications
 
@@ -21,16 +18,14 @@ Le projet se décompose en 2 phases :
 
 ## Technologies utilisées
 
-- React
-- React Router : gérer les routes
-- Redux et Redux Toolkit : gérer les états
-- Fontawesome : intégrer les icônes
-- Modules CSS : gérer le css
-- Swagger editor : définir et de concevoir les endpoints API
-- Prettier : mettre en forme le code
-- ESLint : indiquer les erreurs et sécuriser le code
-- JSDoc : pour commenter et documenter le code
-- Github : versionner le code
+- react : V18.2.0
+- react-dom : V18.2.0
+- react-router-dom : V6.14.2
+- react-scripts : V5.0.1
+- axios : V1.4.0
+- redux : V4.2.1
+- styled-components : V6.0.7
+- [Create React App](https://github.com/facebook/create-react-app)
 
 ## Maquettes à respecter
 
